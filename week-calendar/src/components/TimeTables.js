@@ -39,7 +39,7 @@ const TimeTable = () => {
         });
     }
     
-    var times = ['nineAM', 'tenAM', 'elevenAM', 'twelvePM', 'onePM', 'twoPM', 'threePM', 'fourPM', 'fivePM']
+    let times = ['nineAM', 'tenAM', 'elevenAM', 'twelvePM', 'onePM', 'twoPM', 'threePM', 'fourPM', 'fivePM']
 
     times.forEach(getLocalStorage);
 

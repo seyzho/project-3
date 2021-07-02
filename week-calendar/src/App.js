@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import CurrentDate from './components/CurrentDate';
 
 function App() {
   return (
@@ -19,9 +20,11 @@ function App() {
       <main>
       <div>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              7/1/2021
-            </Typography>
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <CurrentDate/>
+                </Grid>
+              </Grid>
             <div>
               <Grid container spacing={2} justify="center">
                 <Grid item>

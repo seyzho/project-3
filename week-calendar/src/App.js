@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import CurrentDate from './components/CurrentDate';
 import { useState } from 'react';
+import TimeTable from './components/TimeTables';
 
 function App() {
   const [value, onChange, month] = useState(new Date());
@@ -22,36 +23,19 @@ function App() {
       </AppBar>
       <main>
       <div>
-          <Container maxWidth="sm">
-              <Grid container spacing={2} justify="center">
+          <Container maxWidth="xs">
+              <Grid container spacing={4} justify="center">
                 <Grid item>
                   <CurrentDate/>
                 </Grid>
               </Grid>
-            <div>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Add New Event
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Edit Event
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-            <Grid container>
-              <Grid item>
                 <Calendar
                   onChance={onChange}
                   value={value}
                   view={month}
                 />
-              </Grid>
-            </Grid>
           </Container>
+          <TimeTable/>
         </div>
       </main>
     </React.Fragment>

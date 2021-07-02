@@ -1,14 +1,17 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import { Button } from '@material-ui/core';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import CurrentDate from './components/CurrentDate';
+import { useState } from 'react';
 
 function App() {
+  const [value, onChange, month] = useState(new Date());
   return (
     <React.Fragment>
       <CssBaseline/>
@@ -39,6 +42,15 @@ function App() {
                 </Grid>
               </Grid>
             </div>
+            <Grid container>
+              <Grid item>
+                <Calendar
+                  onChance={onChange}
+                  value={value}
+                  view={month}
+                />
+              </Grid>
+            </Grid>
           </Container>
         </div>
       </main>

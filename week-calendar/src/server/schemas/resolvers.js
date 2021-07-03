@@ -29,9 +29,9 @@ const resolvers = {
             return Event.findOneAndUpdate({ _id });
         },
         // deleteEvent
-        addComment: async (parent, { thoughtId, reactionBody }) => {
+        addComment: async (parent, { eventId, commentBody }) => {
             const updatedEvent = await Events.findByIdAndUpdate(
-                { _id: comment._id },
+                { _id: event._id },
                 { $push: { comments: { commentBody, username: user.username }}},
                 { new: true, runValidators: true }
             );

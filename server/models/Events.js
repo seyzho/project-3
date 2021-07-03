@@ -16,14 +16,21 @@ const eventSchema = new Schema(
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
         },
+        eventBody: {
+            type: String,
+            required: true
+        },
         eventDay: {
             type: String,
+            required: true
         },
         eventTime: {
             type: Int,
+            required: true
         },
         eventLength: {
-            type: int
+            type: int,
+            required: true
         },
         comment: [commentSchema]
     },

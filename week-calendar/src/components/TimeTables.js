@@ -68,6 +68,26 @@ const TimeTable = () => {
                     <Paper  className={classes.paper}>Save Your Event</Paper>
                 </Grid>
             </Grid>
+
+            {
+            
+            times.map((time => {
+                return (<Grid container>
+                <Grid item xs={4} className="hour">
+                    <Paper className={classes.paper}>{time}</Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <form className='add-form'>
+                        <textarea name={time} placeholder='Add event...' value={text.time} onChange={handleChange}></textarea>
+                    </form>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button value={time} color='steelblue' text='Save' height='100px' onClick={onClick} />
+                </Grid>
+            </Grid>)
+            }
+                ))}
+{/* 
             <Grid container>
                 <Grid item xs={4} className="hour">
                     <Paper className={classes.paper}>9:00 AM</Paper>
@@ -80,7 +100,7 @@ const TimeTable = () => {
                 <Grid item xs={4}>
                     <Button value='nineAM' color='steelblue' text='Save' height='100px' onClick={onClick} />
                 </Grid>
-            </Grid>
+            </Grid> */}
             {/* <Row>
                 <Col className="hour">
                     <p>10:00 AM</p>

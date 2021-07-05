@@ -39,7 +39,7 @@ const TimeTable = () => {
         });
     }
     
-    let times = ['nineAM', 'tenAM', 'elevenAM', 'twelvePM', 'onePM', 'twoPM', 'threePM', 'fourPM', 'fivePM']
+    let times = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM']
 
     times.forEach(getLocalStorage);
 
@@ -72,7 +72,7 @@ const TimeTable = () => {
             {
             
             times.map((time => {
-                return (<Grid container>
+                return (<Grid container key={time}>
                 <Grid item xs={4} className="hour">
                     <Paper className={classes.paper}>{time}</Paper>
                 </Grid>
@@ -87,124 +87,6 @@ const TimeTable = () => {
             </Grid>)
             }
                 ))}
-{/* 
-            <Grid container>
-                <Grid item xs={4} className="hour">
-                    <Paper className={classes.paper}>9:00 AM</Paper>
-                </Grid>
-                <Grid item xs={4}>
-                    <form className='add-form'>
-                        <textarea name="nineAM" placeholder='Add event...' value={text.nineAM} onChange={handleChange}></textarea>
-                    </form>
-                </Grid>
-                <Grid item xs={4}>
-                    <Button value='nineAM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Grid>
-            </Grid> */}
-            {/* <Row>
-                <Col className="hour">
-                    <p>10:00 AM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="tenAM" placeholder='Add event...' value={text.tenAM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='tenAM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>11:00 AM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="elevenAM" placeholder='Add event...' value={text.elevenAM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='elevenAM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>12:00 PM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="twelvePM" placeholder='Add event...' value={text.twelvePM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='twelvePM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>1:00 PM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="onePM" placeholder='Add event...' value={text.onePM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='onePM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>2:00 PM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="twoPM" placeholder='Add event...' value={text.twoPM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='twoPM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>3:00 PM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="threePM" placeholder='Add event...' value={text.threePM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='threePM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>4:00 PM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="fourPM" placeholder='Add event...' value={text.fourPM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='fourPM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row>
-            <Row>
-                <Col className="hour">
-                    <p>5:00 PM</p>
-                </Col>
-                <Col md={8} sm={4}>
-                    <form className='add-form'>
-                        <textarea name="fivePM" placeholder='Add event...' value={text.fivePM} onChange={handleChange}></textarea>
-                    </form>
-                </Col>
-                <Col>
-                    <Button value='fivePM' color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Col>
-            </Row> */}
         </Container>
     )
 }

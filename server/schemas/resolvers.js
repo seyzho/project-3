@@ -30,10 +30,33 @@ const resolvers = {
 
             // throw new AuthenicationError("Please log in first");
         },
-        updateEvent: async (parent, { _id }) => {
-            return Event.findOneAndUpdate({ _id });
+        updateEvent: async (parent, { _id }, context) => {
+            if (context.user) {
+                const updateEvent = await Events.findOneAndUpdate(
+                    { _id: context.event._id},
+                    { $push: { events: event._id}},
+                    { new: true}
+                );
+
+                return updateEvent;
+
+                // throw new AuthenicationError("Please log in first");
+
+            }
         },
-        // deleteEvent
+        deleteEvent: async (parent, { _id }, context) => {
+            if (context.user) {
+                const deleteEvent = await Events.findOneAndDelete(
+                    { _id: eventId },
+                    { $pull: { events: event._id}},
+                    { new: true }
+                );
+
+                return deleteEvent;
+            }
+
+            // throw new AuthenicationError("Please log in first");
+        },
         addComment: async (parent, { eventId, commentBody }, context) => {
             if (context.user) { 
             const updatedEvent = await Events.findOneAndUpdate(
@@ -47,10 +70,33 @@ const resolvers = {
 
         // throw new AuthenticationError("Please log in first");
         },
-        updateComment: async (parent, { _id }) => {
-            return Comment.findOneAndUpdate({ _id });
-        }
-        // deleteComment
+        updateComment: async (parent, { _id }, context) => {
+            if (context.user) {
+                const updateComment = await Events.findOneAndUpdate(
+                    { _id: context.event._id},
+                    { $push: { events: event._id}},
+                    { new: true}
+                );
+
+                return updateComment;
+
+                // throw new AuthenicationError("Please log in first");
+
+            }
+        },
+        deleteComment: async (parent, { _id }, context) => {
+            if (context.user) {
+                const deleteComment = await Events.findOneAndDelete(
+                    { _id: eventId },
+                    { $pull: { events: event._id}},
+                    { new: true }
+                );
+
+                return deleteComment;
+            }
+
+            // throw new AuthenicationError("Please log in first");
+        },
     }
 };
 

@@ -4,32 +4,33 @@ const dateFormat = require('../utils/dateFormat');
 
 const eventSchema = new Schema(
     {
-        // id: {
-            // id: _id
-        // },
         eventTitle: {
             type: String,
             required: "Please add you event's information"
+        },
+        eventBody: {
+            type: String,
+            required: true
+        },
+        username: {
+            type: String,
+            required: true
         },
         createdAt: {
             type: Date,
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
         },
-        eventBody: {
-            type: String,
-            required: true
-        },
         eventDay: {
             type: String,
             required: true
         },
-        eventTime: {
+        eventStart: {
             type: Int,
             required: true
         },
-        eventLength: {
-            type: int,
+        eventEnd: {
+            type: Int,
             required: true
         },
         comment: [commentSchema]
@@ -42,7 +43,7 @@ const eventSchema = new Schema(
 );
 
 eventSchema.virtual('commentCount').get(function() {
-    return this.comments.length;
+    return this.comment.length;
 });
 
 const Events = model('Events', eventSchema);

@@ -6,10 +6,11 @@ const typeDefs = gql`{
         username: String
         title: String
         eventBody: String
-        timeOfDay: Int
-        length: Int
+        startTime: Int
+        endTime: Int
         createdAt: String
         commentCount: Int
+        comment: [Comments]
     }
     
     type Comments {
@@ -18,8 +19,14 @@ const typeDefs = gql`{
         commentBody: String
         createdAt: String
     }
+
+    type Auth {
+        token: ID!
+        user: user
+    }
     
     type Query {
+        me: User
         users: [User]
         user(username: String!): User
         events(username: String): [Events]
@@ -27,8 +34,8 @@ const typeDefs = gql`{
     }
 
     type Mutation {
-        addEvent(username: String!, title: String!, eventBody: String!, timeOfDay: Int!, length: Int!): Events
-        updateEvent(username: String!, evendId: ID!, title: String, eventBody: String, timeOfDay: Int, length: Int): Events
+        addEvent(username: String!, title: String!, eventBody: String!, startTime: Int!, endTime: Int!): Events
+        updateEvent(username: String!, evendId: ID!, title: String, eventBody: String, startTime: Int, endTime: Int): Events
         addComment(username: String!, eventId: ID!, commentBody: String!): Comments
         updateComment(Username: String!, eventId: ID!, commentID!, commentBody: String): Comments
     }

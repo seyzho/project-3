@@ -1,0 +1,57 @@
+// const { AuthenticationError} = require("apollo-server-express");
+const { Events } = require('../models');
+// const { signToken } = require('../utils/auth');
+
+const resolvers = {
+    Query: {
+        // get all calendar event by username
+        events: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Events.find(params).sort({ createdAt: -1 });
+        },
+        // get calendar event by id
+        event: async (parent, { _id }) => {
+            return Event.findOne({ _id });
+        }
+    },
+    Mutation: {
+        addEvent: async (parent, args, context) => {
+            if (context.user) { 
+                const event = await Events.create( { ...args, username: context.user.username });
+    
+                await User.findByIdAndUpdate(
+                    { _id: context.event._id },
+                    { $push: { events: event._id } },
+                    { new: true }
+                );
+    
+                return event;
+            }
+
+            // throw new AuthenicationError("Please log in first");
+        },
+        updateEvent: async (parent, { _id }) => {
+            return Event.findOneAndUpdate({ _id });
+        },
+        // deleteEvent
+        addComment: async (parent, { eventId, commentBody }, context) => {
+            if (context.user) { 
+            const updatedEvent = await Events.findOneAndUpdate(
+                { _id: eventId },
+                { $push: { comments: { commentBody, username: context.user.username }}},
+                { new: true, runValidators: true }
+            );
+
+            return updatedEvent;
+        }
+
+        // throw new AuthenticationError("Please log in first");
+        },
+        updateComment: async (parent, { _id }) => {
+            return Comment.findOneAndUpdate({ _id });
+        }
+        // deleteComment
+    }
+};
+
+module.exports = resolvers;

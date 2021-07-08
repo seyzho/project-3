@@ -39,10 +39,9 @@ const resolvers = {
                 );
 
                 return updateEvent;
-
-                // throw new AuthenicationError("Please log in first");
-
             }
+
+            // throw new AuthenicationError("Please log in first");
         },
         deleteEvent: async (parent, { _id }, context) => {
             if (context.user) {
@@ -66,9 +65,9 @@ const resolvers = {
             );
 
             return updatedEvent;
-        }
+            }
 
-        // throw new AuthenticationError("Please log in first");
+            // throw new AuthenticationError("Please log in first");
         },
         updateComment: async (parent, { _id }, context) => {
             if (context.user) {
@@ -79,10 +78,9 @@ const resolvers = {
                 );
 
                 return updateComment;
-
-                // throw new AuthenicationError("Please log in first");
-
             }
+
+            // throw new AuthenicationError("Please log in first");
         },
         deleteComment: async (parent, { _id }, context) => {
             if (context.user) {

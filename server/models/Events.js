@@ -6,7 +6,7 @@ const eventSchema = new Schema(
     {
         eventTitle: {
             type: String,
-            required: "Please add you event's information"
+            required: "Please add a title to your event"
         },
         eventBody: {
             type: String,
@@ -31,6 +31,14 @@ const eventSchema = new Schema(
         },
         eventEnd: {
             type: Int,
+            required: true
+        },
+        zoomLink: {
+            type: String,
+            required: false
+        },
+        timezone: {
+            type: String,
             required: true
         },
         comment: [commentSchema]

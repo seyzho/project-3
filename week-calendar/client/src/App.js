@@ -1,28 +1,40 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import { Button } from '@material-ui/core';
-import 'react-calendar/dist/Calendar.css';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import CurrentDate from './components/CurrentDate';
-import { useState } from 'react';
-import TimeTable from './components/TimeTables';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Nav from "./components/Nav";
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql',
+})
 
 function App() {
   return (
-    <React.Fragment>
-      <CssBaseline/>
-      <AppBar position='relative'>
-        <Toolbar>
-          <Button>Login</Button>
-        </Toolbar>
-      </AppBar>
-      <main>
-      
-      </main>
-    </React.Fragment>
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+            </Switch>
+        </div>
+      </Router>
+    </ApolloProvider>
+
   );
 }
 

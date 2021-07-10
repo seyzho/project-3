@@ -1,6 +1,6 @@
-// const { AuthenticationError} = require("apollo-server-express");
+const { AuthenticationError} = require("apollo-server-express");
 const { Events } = require('../models');
-// const { signToken } = require('../utils/auth');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -28,7 +28,7 @@ const resolvers = {
                 return event;
             }
 
-            // throw new AuthenicationError("Please log in first");
+            throw new AuthenicationError("Please log in first");
         },
         updateEvent: async (parent, { _id }, context) => {
             if (context.user) {
@@ -41,7 +41,7 @@ const resolvers = {
                 return updateEvent;
             }
 
-            // throw new AuthenicationError("Please log in first");
+            throw new AuthenicationError("Please log in first");
         },
         deleteEvent: async (parent, { _id }, context) => {
             if (context.user) {
@@ -54,7 +54,7 @@ const resolvers = {
                 return deleteEvent;
             }
 
-            // throw new AuthenicationError("Please log in first");
+            throw new AuthenicationError("Please log in first");
         },
         addComment: async (parent, { eventId, commentBody }, context) => {
             if (context.user) { 
@@ -67,7 +67,7 @@ const resolvers = {
             return updatedEvent;
             }
 
-            // throw new AuthenticationError("Please log in first");
+            throw new AuthenticationError("Please log in first");
         },
         updateComment: async (parent, { _id }, context) => {
             if (context.user) {
@@ -80,7 +80,7 @@ const resolvers = {
                 return updateComment;
             }
 
-            // throw new AuthenicationError("Please log in first");
+            throw new AuthenicationError("Please log in first");
         },
         deleteComment: async (parent, { _id }, context) => {
             if (context.user) {
@@ -93,7 +93,7 @@ const resolvers = {
                 return deleteComment;
             }
 
-            // throw new AuthenicationError("Please log in first");
+            throw new AuthenicationError("Please log in first");
         },
     }
 };

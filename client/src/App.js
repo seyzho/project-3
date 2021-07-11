@@ -9,6 +9,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import NoMatch from './pages/NoMatch';
+import SingleEvent from './pages/SingleEvent';
+import Profile from './pages/Profile';
 
 
 const client = new ApolloClient({
@@ -33,6 +36,10 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile/:username?" component={Profile} />
+              <Route exact path="/event/:id" component={SingleEvent} />
+
+              <Route component={NoMatch}/>
             </Switch>
         </div>
         <div>

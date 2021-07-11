@@ -72,7 +72,7 @@ const TimeTable = () => {
             {
             
             times.map((time => {
-                return (<Grid container key={time}>
+                return (<Grid container key={time._id}>
                 <Grid item xs={4} className="hour">
                     <Paper className={classes.paper}>{time}</Paper>
                 </Grid>

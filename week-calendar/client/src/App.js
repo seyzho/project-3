@@ -6,7 +6,8 @@ import ApolloClient from 'apollo-boost';
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Nav from "./components/Nav";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -25,12 +26,15 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-            <Nav />
+            <Header />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
             </Switch>
+        </div>
+        <div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

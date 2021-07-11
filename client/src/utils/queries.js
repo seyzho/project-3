@@ -11,7 +11,7 @@ export const QUERY_EVENTS = gql`
   }
 `;
 
-export const QUERY_EVENT = gql`
+export const QUERY_THOUGHT = gql`
   query event($id: ID!) {
     event(_id: $id) {
       _id
@@ -28,6 +28,11 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      associateCount
+      associates {
+        _id
+        username
+      }
       events {
         _id
         eventText

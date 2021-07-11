@@ -128,10 +128,10 @@ const TimeTable = () => {
                     </p>
                     <form className='add-form' onSubmit={handleFormSubmit}>
                         <textarea name={time} placeholder='Add event...' value={eventText.time} onChange={handleChange}></textarea>
-                        <Button value={time} color='steelblue' text='Save' height='100px' type='submit'/>
+                        <button value={time} className='btn' height='100px' type='submit'>
+                            Save
+                        </button>
                     </form>
-                </Grid>
-                <Grid item xs={4}>
                 </Grid>
             </Grid>)
             }

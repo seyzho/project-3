@@ -12,7 +12,7 @@ const SingleEvent = props => {
     variables: { id: eventId }
   });
 
-  const event = data?.thought || {};
+  const event = data?.event || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -31,8 +31,6 @@ const SingleEvent = props => {
           <p>{event.eventText}</p>
         </div>
       </div>
-
-      {Auth.loggedIn()}
     </div>
   );
 };

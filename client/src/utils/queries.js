@@ -11,6 +11,17 @@ export const QUERY_THOUGHTS = gql`
   }
 `;
 
+export const QUERY_EVENT = gql`
+  query event($id: ID!) {
+    event(_id: $id) {
+      _id
+      eventText
+      createdAt
+      username
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -21,6 +32,41 @@ export const QUERY_USER = gql`
         _id
         eventText
         createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      associateCount
+      events {
+        _id
+        eventText
+        createdAt
+      }
+      associates {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+      associateCount
+      associates {
+        _id
+        username
       }
     }
   }

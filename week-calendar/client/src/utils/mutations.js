@@ -21,3 +21,14 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_THOUGHT = gql`
+  mutation addEvent($eventText: String!) {
+    addEvent(eventText: $eventText) {
+      _id
+      eventText
+      createdAt
+      username
+    }
+  }
+`;

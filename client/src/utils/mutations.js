@@ -33,3 +33,30 @@ export const ADD_EVENT = gql`
     }
   }
 `;
+
+export const ADD_ASSOCIATE = gql`
+  mutation addAssociate($id: ID!) {
+    addAssociate(associateId: $id) {
+      _id
+      username
+      associateCount
+      associates {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const REMOVE_ASSOCIATE = gql`
+  mutation removeAssociate($id: ID!) {
+    removeAssociate(id: $id) {
+      _id
+      username
+      associates {
+        _id
+        username
+      }
+    }
+  }
+`;

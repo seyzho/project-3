@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import CurrentDate from './components/CurrentDate';
 import { useState } from 'react';
-import TimeTable from './components/TimeTables';
+import TimeTable from './components/TimeTable/TimeTable';
 
 
 

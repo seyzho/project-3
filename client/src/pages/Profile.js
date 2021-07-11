@@ -1,8 +1,9 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
+import EventForm from '../components/EventForm';
 import EventList from '../components/EventList';
-import AssociatesList from '../components/AssociatesList';
+import AssociateList from '../components/AssociateList';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -58,24 +59,25 @@ const Profile = props => {
 
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
+            Add Associate
           </button>
         )}
       </div>
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <EventList thoughts={user.events} title={`${user.username}'s events...`} />
+          <EventList events={user.events} title={`${user.username}'s events...`} />
         </div>
 
         <div className="col-12 col-lg-3 mb-3">
-          <AssociatesList
+          <AssociateList
             username={user.username}
             associateCount={user.associateCount}
             associates={user.associates}
           />
         </div>
       </div>
+      <div className="mb-3">{!userParam && <EventForm />}</div>
     </div>
   );
 };

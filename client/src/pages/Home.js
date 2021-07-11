@@ -22,18 +22,26 @@ const Home = () => {
     <main>
       <div>
           <Container maxWidth="xs">
+            {loggedIn && (
               <Grid container spacing={4} justify="center">
               </Grid>
+            )}
+            {loggedIn && (    
               <Calendar
                 onChange={onChange}
                 value={value}
                 view={month}
               />
+            )}
+            {loggedIn && (
               <Grid item>
                 <Typography>{value.toDateString()}</Typography>
               </Grid>
+            )}
           </Container>
+          {loggedIn && (
             <TimeTable events={events}/>
+          )}
           {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <AssociatesList

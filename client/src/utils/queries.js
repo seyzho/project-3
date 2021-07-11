@@ -11,7 +11,7 @@ export const QUERY_EVENTS = gql`
   }
 `;
 
-export const QUERY_THOUGHT = gql`
+export const QUERY_EVENT = gql`
   query event($id: ID!) {
     event(_id: $id) {
       _id

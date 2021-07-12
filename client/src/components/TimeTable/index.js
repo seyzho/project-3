@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const TimeTable = (value) => {
+const TimeTable = () => {
     const classes = useStyles();
 
     const [text, setState] = useState({
@@ -52,7 +52,7 @@ const TimeTable = (value) => {
     const onClick = (e) => {
         const value = e.target.value;
         localStorage.setItem(value, text[value])
-        console.log(text[value].toString())
+        console.log(value)
     }
     
     return (

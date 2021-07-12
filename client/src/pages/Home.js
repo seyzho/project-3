@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Grid, Typography, Container } from '@material-ui/core';
 import TimeTable from '../components/TimeTable';
-import AssociatesList from '../components/AssociatesList';
+import AssociateList from '../components/AssociateList';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
@@ -22,29 +22,21 @@ const Home = () => {
     <main>
       <div>
           <Container maxWidth="xs">
-            {loggedIn && (
-              <Grid container spacing={4} justify="center">
+              <Grid container spacing={4} justifyContent="center">
               </Grid>
-            )}
-            {loggedIn && (    
               <Calendar
                 onChange={onChange}
                 value={value}
                 view={month}
               />
-            )}
-            {loggedIn && (
               <Grid item>
                 <Typography>{value.toDateString()}</Typography>
               </Grid>
-            )}
           </Container>
-          {loggedIn && (
             <TimeTable events={events}/>
-          )}
           {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
-            <AssociatesList
+            <AssociateList
               username={userData.me.username}
               associateCount={userData.me.associateCount}
               associates={userData.me.associates}

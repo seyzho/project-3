@@ -1249,8 +1249,7 @@ nav a:hover {
   }
 }
 
-/* TimeTable */
-/* textarea {
+textarea {
   background: whitesmoke;
   outline: none;
   width: 100%;
@@ -1292,4 +1291,4 @@ input:focus::placeholder {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
-} */
+}

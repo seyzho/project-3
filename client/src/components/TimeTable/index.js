@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Button from './Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
@@ -83,7 +82,7 @@ const TimeTable = (value) => {
                     </form>
                 </Grid>
                 <Grid item xs={4}>
-                    <Button value={time} color='steelblue' text='Save' height='100px' onClick={onClick} />
+                    <button value={time} color='steelblue' text='Save' height='100px' onClick={onClick} />
                 </Grid>
             </Grid>)
             }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AssociatesList = ({ associateCount, username, associates }) => {
+const AssociateList = ({ associateCount, username, associates }) => {
   if (!associates || !associates.length) {
     return <p className="bg-dark text-light p-3">{username}, add some associates!</p>;
   }
@@ -20,4 +20,4 @@ const AssociatesList = ({ associateCount, username, associates }) => {
   );
 };
 
-export default AssociatesList;
+export default AssociateList;

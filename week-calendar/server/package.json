@@ -1,0 +1,31 @@
+{
+  "name": "project-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@apollo/client": "^3.3.21",
+    "apollo-server-express": "^2.25.2",
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "mongoose": "^5.13.2",
+    "nodemon": "^2.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seyzho/project-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seyzho/project-3/issues"
+  },
+  "homepage": "https://github.com/seyzho/project-3#readme"
+}

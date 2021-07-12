@@ -1,3 +1,4 @@
+import React from 'react';
 import propTypes from 'prop-types';
 
 const Button = ({ value, color, text, height, onClick }) => {

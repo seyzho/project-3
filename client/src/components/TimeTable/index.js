@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import EventForm from '../EventForm';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,41 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const TimeTable = () => {
     const classes = useStyles();
 
-    const [text, setState] = useState({
-        nineAM: "",
-        tenAM: "",
-        elevenAM: "",
-        twelvePM: "",
-        onePM: "",
-        twoPM: "",
-        threePM: "",
-        fourPM: "",
-        fivePM: "",
-    })
-    function handleChange(e) {
-        const value = e.target.value;
-        setState({
-            ...text,
-            [e.target.name]: value
-        });
-    }
-    
     let times = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM']
-
-    times.forEach(getLocalStorage);
-
-    function getLocalStorage(item, index) {
-        const value = localStorage.getItem(item);
-        if (value) {
-            text[item] = value;
-        }
-    }
-
-    const onClick = (e) => {
-        const value = e.target.value;
-        localStorage.setItem(value, text[value])
-        console.log(value)
-    }
     
     return (
         <Container className="time-block">
@@ -74,16 +42,12 @@ const TimeTable = () => {
             times.map((time => {
                 return (<Grid container key={time}>
                 <Grid item xs={4} className="hour">
-                    <Paper className={classes.paper}>{time}</Paper>
+                    <Paper className={classes.paper}><Link to="/eventlist">{time}</Link></Paper>
                 </Grid>
-                <Grid item xs={4}>
-                    <form className='add-form'>
-                        <textarea name={time} placeholder='Add event...' value={text.time} onChange={handleChange}></textarea>
-                    </form>
+                <Grid item xs={8}>
+                    <EventForm/>
                 </Grid>
-                <Grid item xs={4}>
-                    <button value={time} color='steelblue' text='Save' height='100px' onClick={onClick} />
-                </Grid>
+                
             </Grid>)
             }
                 ))}

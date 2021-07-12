@@ -69,11 +69,11 @@ const EventForm = () => {
         <textarea
           placeholder="Here's a new event..."
           value={eventText}
-          className="form-input col-12 col-md-9"
+          className="form-input col-12 col-md-6"
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
+        <button className="btn col-12 col-md-6" type="submit">
+          Save
         </button>
       </form>
     </div>

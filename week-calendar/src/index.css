@@ -5,7 +5,7 @@
 }
 
  body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Book Antiqua', 'Cambria', 'sans- serif';
   font-size: 16px;
   line-height: 1;
 }
@@ -15,7 +15,7 @@ textarea {
   outline: none;
   width: 100%;
   height: 100px;
-  background-color: #f8f8f8;
+  background-color: #e2b58d;
   border-left: 2px solid black;
   border-right: 2px solid black;
   padding: 10px;
@@ -32,8 +32,8 @@ input:focus::placeholder {
 }
 
 .hour {
-  background-color: whitesmoke;
-  color: #000000;
+  background-color: rgba(245, 245, 245, 0.842);
+  color: #630808;
   border-top: 1px solid #000000;
   height: 100px;
   text-align: center;
@@ -44,8 +44,8 @@ input:focus::placeholder {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
+  background-color: rgb(12, 45, 231);
+  color: #350303;
   width: 100%;
 }
 

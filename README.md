@@ -7,7 +7,6 @@
   - [Usage](#usage)
   - [Credit](#credit)
   - [License](#license)
-  - [Test](#test)
   - [Questions](#questions)
 
   ## Usage 
@@ -16,11 +15,12 @@
   Khan A, Noah S, Lawrence Y, Pritika S
   ## License
   This project is cover under Academic License (https://choosealicense.com/licenses/Academic/)
-  ## Test 
-  tests here
+
   ## Questions
   
-  If you have any Questions, please do not hesitate to contact me on: 
-  -Github: [seyzho](https://github.com/seyzho)
+  If you have any Questions, please do not hesitate to contact us on Github
+* [seyzho](https://github.com/seyzho)
+* [lwrnce](https://github.com/lwrnce)
+* [noahschnur](https://github.com/noahschnur)
+* [PSingh0920](https://github.com/PSingh0920)
   
-  -Email: sherekhanfilms@gmail.com
